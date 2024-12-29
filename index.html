@@ -3,174 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hằng và cuộc sống xung quanh bạn ấy</title>
-    <!-- Kết nối Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&family=Kaushan+Script&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-
+    <title>Các Bài Hát Mà Tôi Ưa Thích</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* CSS cho trang web lớn */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f3f3f3;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #111111, #2a2a2a, #111111); /* Nền chuyển động */
+            background-size: 400% 400%; /* Điều chỉnh tốc độ chuyển động */
+            animation: gradientAnimation 10s ease infinite;
             margin: 0;
             padding: 0;
-            background-image: url('https://i.pinimg.com/736x/37/82/3d/37823db83bd4422f39a58c5adbe44c02.jpg'); /* Hình nền trang web */
-            background-size: cover;
-            background-position: center;
+            color: #d3d3d3; /* Màu chữ sáng */
+            line-height: 1.6;
         }
 
-        /* Phần tiêu đề chính */
+        /* Hiệu ứng gradient nền động */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         header {
-            background-color: rgba(156, 39, 176, 0.8); /* Màu tím nhạt với độ trong suốt */
+            background: rgba(0, 0, 0, 0.5); /* Nền bán trong */
             color: white;
-            padding: 50px 20px;
             text-align: center;
-            font-family: 'Pacifico', cursive;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 2s ease-in-out;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 10;
         }
 
         h1 {
-            font-size: 4em;
-            font-weight: bold;
+            margin: 0;
+            font-size: 50px;
+            font-family: 'Playfair Display', serif;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: titleAnimation 4s ease-out infinite alternate;
         }
 
-        /* Hiệu ứng fadeIn cho phần tiêu đề */
-        @keyframes fadeIn {
+        @keyframes titleAnimation {
             0% {
-                opacity: 0;
-                transform: translateY(-50px);
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.6);
             }
             100% {
-                opacity: 1;
-                transform: translateY(0);
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.6);
             }
         }
 
-        /* Phần menu điều hướng */
-        nav {
-            text-align: center;
-            background-color: rgba(103, 58, 183, 0.8);
-            padding: 15px 0;
-            animation: slideIn 1s ease-out;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            margin: 0 15px;
-            border-radius: 5px;
-            background-color: #9c27b0;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #8e24aa;
-        }
-
-        /* Hiệu ứng động cho menu */
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        /* Phần nội dung chính */
-        .main-content {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        /* Phần giới thiệu về Hằng */
-        .intro-section, .other-section {
-            display: none;
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-        }
-
-        /* Màu nền tím cho các phần mục khác */
-        .other-section {
-            background-color: #9c27b0;
-            color: white;
-        }
-
-        /* Các mục thêm vào */
-        .other-section iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 10px;
-        }
-
-        .other-section p {
+        p {
             font-size: 18px;
-            font-weight: bold;
+            color: #d3d3d3;
         }
 
+        .song-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .song-item {
+            background-color: #222222; /* Xám tối */
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            color: #d3d3d3;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .song-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .song-item h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .song-item p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #d3d3d3;
+        }
+
+        .song-item iframe {
+            border-radius: 10px;
+            border: none;
+            max-width: 100%;
+            height: 200px;
+        }
+
+        .song-list .song-item:nth-child(odd) {
+            margin-top: 30px; /* Lệch một chút */
+        }
+
+        footer {
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+
+        .song-item a {
+            color: #ff5500;
+            text-decoration: none;
+        }
+
+        .song-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cập nhật màu sắc cho mỗi mục */
+        .song-item:nth-child(1) h2 {
+            color: #ff0000; /* Đỏ */
+        }
+        .song-item:nth-child(2) h2 {
+            color: #ff9900; /* Cam */
+        }
+        .song-item:nth-child(3) h2 {
+            color: #33cc33; /* Xanh lá */
+        }
+        .song-item:nth-child(4) h2 {
+            color: #3399ff; /* Xanh dương */
+        }
+        .song-item:nth-child(5) h2 {
+            color: #ff33cc; /* Hồng */
+        }
+        .song-item:nth-child(6) h2 {
+            color: #ffcc00; /* Vàng */
+        }
+        .song-item:nth-child(7) h2 {
+            color: #663399; /* Tím */
+        }
+        .song-item:nth-child(8) h2 {
+            color: #00b3b3; /* Xanh nước biển */
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Hằng và cuộc sống xung quanh bạn ấy</h1>
-</header>
+    <header>
+        <h1>Các Bài Hát Mà Tôi Ưa Thích</h1>
+        <p>Những bài hát yêu thích của tôi mà tôi muốn chia sẻ với bạn!</p>
+    </header>
 
-<nav>
-    <a href="javascript:void(0);" onclick="showIntro()">Giới thiệu về Hằng</a>
-    <a href="javascript:void(0);" onclick="showOther(1)">Những bài hát ưa thích</a>
-    <a href="javascript:void(0);" onclick="showOther(2)">Lớp love của Hằng (12A2)</a>
-</nav>
+    <main>
+        <section>
+            <h2 style="text-align: center; color: #ffffff; font-size: 28px; margin-top: 40px;">Danh Sách Các Bài Hát</h2>
+            <div class="song-list">
+                <!-- Bài hát 1 -->
+                <div class="song-item">
+                    <h2>1. Lối Đi Riêng - Dấu Vân Tay</h2>
+                    <p>Đây là bài hát đầu tiên tôi muốn giới thiệu. Nó mang lại cảm giác tươi mới và đầy cảm hứng.</p>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1934247752&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                    <div style="font-size: 10px; color: #cccccc;">
+                        <a href="https://soundcloud.com/dauvantayband" title="Dấu Vân Tay" target="_blank">Dấu Vân Tay</a> ·
+                        <a href="https://soundcloud.com/dauvantayband/loi-di-rieng-reprised-dau-van-tay-official-audio" title="Lối Đi Riêng - Reprised" target="_blank">Lối Đi Riêng - Reprised</a>
+                    </div>
+                </div>
 
-<div class="main-content">
-    <!-- Phần giới thiệu về Hằng -->
-    <div class="intro-section" id="introSection">
-        <iframe src="file:///D:/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG%2012A2/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG1%20.html" width="100%" height="800px" frameborder="0"></iframe>
-    </div>
+                <!-- Bài hát 2 -->
+                <div class="song-item">
+                    <h2>2. Bước Za Đi Xa x Nắng Ấm Xa Dần (Gaz Mix)</h2>
+                    <p>Bài hát này là một trong những tác phẩm tôi yêu thích vì giai điệu nhẹ nhàng và ca từ sâu sắc.</p>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1927439072&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                    <div style="font-size: 10px; color: #cccccc;">
+                        <a href="https://soundcloud.com/gaz-838646785" title="Gaz" target="_blank">Gaz</a> ·
+                        <a href="https://soundcloud.com/gaz-838646785/buoc-za-di-xa-nang-am-xa-dan-gaz-mix" title="Bước Za Đi Xa x Nắng Ấm Xa Dần (Gaz Mix)" target="_blank">Bước Za Đi Xa x Nắng Ấm Xa Dần</a>
+                    </div>
+                </div>
 
-    <!-- Những bài hát ưa thích -->
-    <div class="other-section" id="otherSection1">
-        <iframe src="file:///D:/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG%2012A2/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG2.html" width="100%" height="600px" frameborder="0"></iframe>
-     </div>
+                <!-- Bài hát 3 -->
+                <div class="song-item">
+                    <h2>3. Afternoon Love Flower</h2>
+                    <p>Bài hát này mang một giai điệu nhẹ nhàng và dễ chịu, phù hợp để thư giãn vào buổi chiều.</p>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1941032735&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                    <div style="font-size: 10px; color: #cccccc;">
+                        <a href="https://soundcloud.com/gheasrmx" title="GHEAS RMX" target="_blank">GHEAS RMX</a> ·
+                        <a href="https://soundcloud.com/gheasrmx/afternoon-love-flower" title="Afternoon Love Flower" target="_blank">Afternoon Love Flower</a>
+                    </div>
+                </div>
 
-    <!-- Lớp love của Hằng (12A2) -->
-    <div class="other-section" id="otherSection2">
-        <iframe src="file:///D:/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG%2012A2/PH%E1%BA%A0M%20TH%E1%BB%8A%20H%E1%BA%B0NG3.html" width="100%" height="600px" frameborder="0"></iframe>
-    </div>
-</div>
+                <!-- Bài hát 4 -->
+                <div class="song-item">
+                    <h2>4. Nếu Như Nỗi Nhớ Có Sinh Mệnh</h2>
+                    <p>Bài hát này mang một phong cách mới mẻ và đầy cảm xúc, sẽ đưa bạn vào một không gian âm nhạc thư giãn.</p>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1953806435&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                    </iframe>
+                    <div style="font-size: 10px; color: #cccccc;">
+                        <a href="https://soundcloud.com/qu-nh-trang-nguy-n-th-739521177" title="SB🦭" target="_blank">SB🦭</a> ·
+                        <a href="https://soundcloud.com/qu-nh-trang-nguy-n-th-739521177/img_5093-mp3" title="Nếu Như Nỗi Nhớ Có Sinh Mệnh" target="_blank">Nếu Như Nỗi Nhớ Có Sinh Mệnh</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<script>
-    function showIntro() {
-        var introSection = document.getElementById('introSection');
-        var otherSection1 = document.getElementById('otherSection1');
-        var otherSection2 = document.getElementById('otherSection2');
-        
-        introSection.style.display = (introSection.style.display === 'none' || introSection.style.display === '') ? 'block' : 'none';
-        otherSection1.style.display = 'none';
-        otherSection2.style.display = 'none';
-    }
-
-    function showOther(sectionId) {
-        var introSection = document.getElementById('introSection');
-        var otherSection1 = document.getElementById('otherSection1');
-        var otherSection2 = document.getElementById('otherSection2');
-
-        introSection.style.display = 'none';
-        otherSection1.style.display = (sectionId === 1) ? 'block' : 'none';
-        otherSection2.style.display = (sectionId === 2) ? 'block' : 'none';
-    }
-</script>
-
-</body>
+   </body>
 </html>
